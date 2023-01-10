@@ -1,0 +1,20 @@
+Simple ansible playbook to copy files to clients from Master node
+
+Master >> Node 1 & Node 2
+
+vim copy.yml 
+
+---
+- name: copying files to remote clients
+  hosts: all
+  
+  tasks:
+   - name: pushing files to clients
+     copy:
+       src: /home/abhi/some.cfg
+       dst: /tmp
+       owner: root
+       group: root
+       mode: 0664
+       
+     
