@@ -1,0 +1,54 @@
+Checking if a file exists on the remote client and printing it's attributes
+
+vim filescheckFS.yml
+
+---
+- name: Finding the file,, status and attributes printing
+  hosts: all
+    
+  tasks:
+    - name: finding the file
+      stat:
+        path: /home/abhi/linxu1
+      register: fs
+      
+   - name: printing the status and attributes
+     debug:
+      msg: File attributes are {{fs}}
+      
+      
+      
+      
+      
+      :wq!
+      
+      
+      
+      ansible-playbook filescheckFS.yml
+      
+      
+      Answer!
+      
+      
+      
+PLAY [check file status/attributes check] **********************************************************************************
+
+TASK [Gathering Facts] *****************************************************************************************************
+ok: [192.168.107.170]
+ok: [192.168.107.130]
+
+TASK [file checker] ********************************************************************************************************
+ok: [192.168.107.170]
+ok: [192.168.107.130]
+
+TASK [print the status] ****************************************************************************************************
+ok: [192.168.107.130] => {
+    "msg": "File attributes {'changed': False, 'stat': {'exists': True, 'path': '/home/abhi/linux1', 'mode': '0666', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 0, 'gid': 0, 'size': 0, 'inode': 16880427, 'dev': 64768, 'nlink': 1, 'atime': 1673408231.2074926, 'mtime': 1673406413.4333415, 'ctime': 1673406676.8044503, 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': True, 'rgrp': True, 'xgrp': False, 'woth': True, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False, 'blocks': 0, 'block_size': 4096, 'device_type': 0, 'readable': True, 'writeable': True, 'executable': False, 'pw_name': 'root', 'gr_name': 'root', 'checksum': 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'mimetype': 'inode/x-empty', 'charset': 'binary', 'version': '639998454', 'attributes': [], 'attr_flags': ''}, 'failed': False}"
+}
+ok: [192.168.107.170] => {
+    "msg": "File attributes {'changed': False, 'stat': {'exists': True, 'path': '/home/abhi/linux1', 'mode': '0666', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 0, 'gid': 0, 'size': 0, 'inode': 36197130, 'dev': 64768, 'nlink': 1, 'atime': 1673408231.1753666, 'mtime': 1673406042.3303564, 'ctime': 1673406676.800401, 'wusr': True, 'rusr': True, 'xusr': False, 'wgrp': True, 'rgrp': True, 'xgrp': False, 'woth': True, 'roth': True, 'xoth': False, 'isuid': False, 'isgid': False, 'blocks': 0, 'block_size': 4096, 'device_type': 0, 'readable': True, 'writeable': True, 'executable': False, 'pw_name': 'root', 'gr_name': 'root', 'checksum': 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'mimetype': 'inode/x-empty', 'charset': 'binary', 'version': '3770236396', 'attributes': [], 'attr_flags': ''}, 'failed': False}"
+}
+
+PLAY RECAP *****************************************************************************************************************
+192.168.107.130            : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+192.168.107.170            : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
