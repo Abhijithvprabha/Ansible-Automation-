@@ -1,0 +1,24 @@
+updating the file permsision on a remote client using the module "file" , ansible playbook
+
+
+---
+- name: file permission update on remote client
+  hosts: all
+  tasks:
+  
+    - name : file permission update
+      file:
+        path: /home/abhi/linux1
+        mode: 0666
+      
+      
+      
+      
+      
+      permission of the file updated
+      
+      To do the syntax check:
+      
+      ansible-playbook --syntax-check filepermssion.yml
+      ansible-playbook -C filpermission.yml (dry run)
+    
