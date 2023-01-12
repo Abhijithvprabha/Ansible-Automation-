@@ -1,0 +1,47 @@
+Create dir, create a file, verify files is created, remove the file : on remote ansible clients
+
+
+---
+- name: Create dir, create a file, verify files is created, remove the file
+  hosts: all
+    
+  tasks:
+    
+   - name: create directory on a remote client
+      file:
+        path: /tmp/testdir/
+        state: directory
+        owner: abhi
+        group: abhi
+        mode: 0666
+    
+   - name: create a file inside the directory 
+      file:
+        path: /tmp/testdir/tempfile
+        state: touch
+        owner: abhi
+        group: abhi
+        mode: 0666
+        
+   - name: check adn print if the files is created or not
+     stat:
+      path: /tmp/testdir/tempfile
+     register: po
+      
+   - name: print if the file and attributes
+     debug:
+      msg: File attributes are {{po}}
+      
+   - name: remove the file
+     file:
+      path: /tmp/testdir/tempfile
+      state: absent
+      
+      
+      
+      
+   
+   
+   
+        
+        
