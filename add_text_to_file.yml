@@ -1,0 +1,27 @@
+adding text to a file in the remote client
+
+---
+  -name: add text to the file after creation
+   hosts: all 
+   
+   
+   
+   tasks:
+   
+      - name: creating the file
+        file:
+          path: /home/abhi/file1
+          
+      - name: adding text to the file
+        blockinfile:
+          path: /home/abhi/file1
+          block: Hi , this file modified using ansible 
+          
+       
+       
+       
+       
+       
+       
+      
+    
