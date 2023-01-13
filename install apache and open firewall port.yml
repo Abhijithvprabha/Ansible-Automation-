@@ -1,0 +1,77 @@
+---
+- name: Apache installation and opening port 80
+  hosts: all
+  
+  
+  
+  tasks:
+    
+    - name: installing http package
+      yum:
+        name: http
+        state: present
+        
+        
+    - name: starting http service
+      service: 
+        name: http
+        state: started
+        
+    - name: Opening firewall port 80 for http
+      firewalld:
+        service: http
+        permanent: true
+        state: enabled
+        
+        
+     - name: reloading firewalld service
+       service:
+        name: firewalld
+        state: reloaded
+        
+        
+        
+        
+        
+       ansible-playbook apachesetuo.yml
+       
+       
+       output
+        
+        
+        
+        PLAY [apachesetup and open firewall port] ******************************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************************************************
+ok: [192.168.107.170]
+ok: [192.168.107.130]
+
+TASK [install httpd service] *******************************************************************************************************************************
+changed: [192.168.107.170]
+changed: [192.168.107.130]
+
+TASK [start httpd] *****************************************************************************************************************************************
+changed: [192.168.107.170]
+changed: [192.168.107.130]
+
+TASK [Open port 80 for http access] ************************************************************************************************************************
+changed: [192.168.107.170]
+changed: [192.168.107.130]
+
+TASK [restart firewall] ************************************************************************************************************************************
+changed: [192.168.107.170]
+changed: [192.168.107.130]
+
+PLAY RECAP *************************************************************************************************************************************************
+192.168.107.130            : ok=5    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+192.168.107.170            : ok=5    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+
+        
+        
+        
+        
+        
+        
+        
+        
