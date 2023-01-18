@@ -1,0 +1,60 @@
+Creating an cronjab to the root crontab 
+
+
+
+---
+- name: creating cronjob for the user
+  hosts: all
+  
+  tasks:
+  
+    - name: Scheduling cronjob
+      cron:   
+        name: this job is done by ansible
+        minute: "0"
+        hour: "10"
+        day: "*"
+        month: "*"
+        weekday: "thu"
+        job: "home/abhi/cfile.sh"
+        user: root
+
+
+
+ansible-playbook Cronjob_Creation.yml
+
+
+
+answer 
+
+
+LAY [Create a cronjob on the client] **********************************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************************************************
+ok: [192.168.107.170]
+ok: [192.168.107.130]
+
+TASK [schedule cron] ***************************************************************************************************************************************
+changed: [192.168.107.130]
+changed: [192.168.107.170]
+
+PLAY RECAP *************************************************************************************************************************************************
+192.168.107.130            : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+192.168.107.170            : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[root@Master playbooks]# vim cronjob.yml
+[root@Master playbooks]# ansible-playbook cronjob.yml
+
+PLAY [Create a cronjob on the client] **********************************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************************************************
+ok: [192.168.107.170]
+ok: [192.168.107.130]
+
+TASK [schedule cron] ***************************************************************************************************************************************
+changed: [192.168.107.170]
+changed: [192.168.107.130]
+
+PLAY RECAP *************************************************************************************************************************************************
+192.168.107.130            : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+192.168.107.170            : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
