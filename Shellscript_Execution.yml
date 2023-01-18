@@ -1,0 +1,27 @@
+Running an existing shell script on the remote client
+
+
+
+---
+
+- name: Running shell scripts located on a remote client
+  hosts: all
+  
+  
+  tasks:
+    
+    - name: run shell scripts
+      shell: " /home/abhi/cfile.sh"
+      
+      
+      
+      
+      
+      ansible-playbook shellscript_execution.yml
+      
+      
+      
+      
+      There is a cfile.sh file located on the remote clients on the dir /home/abhi
+      Make sure the sh has execute permission added using chmod
+      
