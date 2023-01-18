@@ -25,3 +25,43 @@ Running an existing shell script on the remote client
       There is a cfile.sh file located on the remote clients on the dir /home/abhi
       Make sure the sh has execute permission added using chmod
       
+      
+      
+      
+      
+      
+      Answer 
+      
+      
+      
+PLAY [Running shell scripts located on the remote clients] *************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************************************************
+ok: [192.168.107.170]
+ok: [192.168.107.130]
+
+TASK [run the shell script] ********************************************************************************************************************************
+skipping: [192.168.107.170]
+skipping: [192.168.107.130]
+
+PLAY RECAP *************************************************************************************************************************************************
+192.168.107.130            : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+192.168.107.170            : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+[root@Master playbooks]# ansible-playbook shellscript.yml
+
+PLAY [Running shell scripts located on the remote clients] *************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************************************************
+ok: [192.168.107.170]
+ok: [192.168.107.130]
+
+TASK [run the shell script] ********************************************************************************************************************************
+changed: [192.168.107.170]
+changed: [192.168.107.130]
+
+PLAY RECAP *************************************************************************************************************************************************
+192.168.107.130            : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+192.168.107.170            : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+      
