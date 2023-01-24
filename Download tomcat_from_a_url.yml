@@ -1,0 +1,52 @@
+Downloading a file from a url using get_url module - Tomcat is downloaded from the online website https://dlcdn.apache.org/tomcat/tomcat-10/v10.0.27/bin/apache-tomcat-10.0.27.zip
+
+
+
+
+---
+- name: Downloading tomcat from a online website url
+  hosts: all
+  
+  tasks:  
+    
+    - name: CVreating a folder location for the tomcat download
+      file: 
+        path: /home/abhi/tomcat
+        state: directory
+        mode: 0777
+        group: abhi
+        owner: abhi
+        
+        
+        
+    - name: Downloading the file from the url 
+      get_url:
+        url: https://dlcdn.apache.org/tomcat/tomcat-10/v10.0.27/bin/apache-tomcat-10.0.27.zip
+        dest: /home/abhi/tomcat
+        mode: 0777
+        group: abhi
+        owner: abhi
+        
+        
+        
+       answer:
+       
+       PLAY [Downloading tomcat from a url] ***********************************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************************************************
+ok: [192.168.107.170]
+ok: [192.168.107.130]
+
+TASK [create a folder location for file] *******************************************************************************************************************
+ok: [192.168.107.170]
+ok: [192.168.107.130]
+
+TASK [downloading tomcat from the url] *********************************************************************************************************************
+changed: [192.168.107.170]
+changed: [192.168.107.130]
+
+PLAY RECAP *************************************************************************************************************************************************
+192.168.107.130            : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+192.168.107.170            : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+       
