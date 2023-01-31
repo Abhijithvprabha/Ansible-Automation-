@@ -1,0 +1,22 @@
+Creating a useraccount on remoteclients 
+
+---
+name: Add user on a remote client
+hosts: all
+
+
+
+tasks:
+  
+  - name: Account creation / user add
+    user:
+      name: john
+      comment: john davis
+      uid: 2010
+      group: endusers
+      
+      
+      
+      
+      
+    
