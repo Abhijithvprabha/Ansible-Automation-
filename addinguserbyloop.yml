@@ -1,0 +1,16 @@
+
+
+- name: adding user by loop method
+  hosts: all
+
+
+  tasks:
+
+    - name: Add users
+      user:
+          name: "{{ item }}"
+      loop:
+            - ash
+            - joh
+            - ram
+
