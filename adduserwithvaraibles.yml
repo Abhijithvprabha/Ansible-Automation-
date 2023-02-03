@@ -1,0 +1,64 @@
+----
+- name: Adding multiple user with the help of variables 
+  hosts: all
+  vars: 
+    users: [rok col pel]
+  
+  
+  tasks:
+    - name: adding users
+      user:
+        name: "{{item}}"
+      with_items: "{{users}}"
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      [root@Master playbooks]# ansible-playbook -C adduserbyvariables.yml
+
+PLAY [adding multiple users by use of a variable] ****************************************************************************
+
+TASK [Gathering Facts] *******************************************************************************************************
+ok: [192.168.107.170]
+ok: [192.168.107.130]
+
+TASK [add users] *************************************************************************************************************
+changed: [192.168.107.130] => (item=rej)
+changed: [192.168.107.170] => (item=rej)
+changed: [192.168.107.130] => (item=mil)
+changed: [192.168.107.170] => (item=mil)
+changed: [192.168.107.130] => (item=pok)
+changed: [192.168.107.170] => (item=pok)
+
+PLAY RECAP *******************************************************************************************************************
+192.168.107.130            : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+192.168.107.170            : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[root@Master playbooks]# vim adduserbyvariables.yml
+[root@Master playbooks]# ansible-playbook adduserbyvariables.yml
+
+PLAY [adding multiple users by use of a variable] ****************************************************************************
+
+TASK [Gathering Facts] *******************************************************************************************************
+ok: [192.168.107.170]
+ok: [192.168.107.130]
+
+TASK [add users] *************************************************************************************************************
+changed: [192.168.107.130] => (item=rej)
+changed: [192.168.107.170] => (item=rej)
+changed: [192.168.107.130] => (item=mil)
+changed: [192.168.107.170] => (item=mil)
+changed: [192.168.107.130] => (item=pok)
+changed: [192.168.107.170] => (item=pok)
+
+PLAY RECAP *******************************************************************************************************************
+192.168.107.130            : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+192.168.107.170            : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
